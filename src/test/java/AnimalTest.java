@@ -132,7 +132,7 @@ public class AnimalTest {
         Animal newAnimal = new Animal("amos", 2, "ill", true);
         testAnimal.update(newAnimal);
         Animal fetch = Animal.find(testAnimal.getId());
-        assertNotEquals(fetch, testAnimal);
+        assertEquals(fetch, testAnimal);
     }
     @Test
     public void all_returnsAllSavedAnimals_true() {

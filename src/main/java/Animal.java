@@ -69,6 +69,10 @@ public class Animal implements Wildlife{
     }
 
     public void update(Animal animal) {
+        this.name = animal.name;
+        this.age = animal.age;
+        this.health = animal.health;
+        this.endangered = animal.endangered;
         try (Connection con = DB.sql2o.open()){
             String sql = "UPDATE animals SET (name, age, health, endangered) = (:name, :age, :health, :endangered) WHERE id= :id;";
             con.createQuery(sql).addParameter("name", animal.name)
