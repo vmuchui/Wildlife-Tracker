@@ -19,6 +19,9 @@ public class RangerTest {
             con.createQuery(initializerangers).executeUpdate();
         }
     }
+    public Ranger setUpRanger() {
+        return new Ranger("muchui", "sg-001");
+    }
 
     @Test
     public  void Ranger_instatiatesCorrectly() {
@@ -66,5 +69,28 @@ public class RangerTest {
         assertEquals(2, testRanger.getId());
     }
     @Test
-    public voi
+    public void save_savestoRangerTable() {
+        Ranger testRanger = setUpRanger();
+        testRanger.save();
+        Ranger ranger = Ranger.find(testRanger.getId());
+        assertEquals(ranger, testRanger);
+    }
+    @Test
+    public void all_returnallInstancesOfRangers() {
+        Ranger testRanger = setUpRanger();
+        testRanger.save();
+        Ranger another = new Ranger("you", "sg-002");
+        another.save();
+        assertTrue(Ranger.all().contains(testRanger));
+        assertTrue(Ranger.all().contains(another));
+    }
+    @Test
+    public void update_updatesDetails() {
+        Ranger testRanger = setUpRanger();
+        testRanger.save();
+        Ranger ranger = new Ranger("you", "sg-002");
+        testRanger.update(ranger);
+        Ranger ranger1 = Ranger.find(testRanger.getId());
+        assertEquals(ranger1,testRanger);
+    }
 }
