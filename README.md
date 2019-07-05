@@ -53,7 +53,7 @@ It is an application where users can:
 
   ``psql``  
 
-* Step 6:  
+* Step 4:  
 
   Restore the database schema (tables and columns) by running the following commands:  
 
