@@ -1,5 +1,6 @@
 import org.sql2o.Connection;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Sighting implements Wildlife{
@@ -51,9 +52,25 @@ private int rangerid;
             return con.createQuery(sql).addParameter("id", id).executeAndFetchFirst(Sighting.class);
         }
     }
+    public static List<Sighting> all() {
+        try (Connection conn = DB.sql2o.open()){
+            String sql = "SELECT * FROM sightings;";
+            return conn.createQuery(sql).executeAndFetch(Sighting.class);
+        }
+    }
+    public static void deleteAll() {
+        try (Connection connection = DB.sql2o.open()){
+            String sql = "DELETE FROM sightings *;";
+            connection.createQuery(sql).executeUpdate();
+        }
+    }
 
     @Override
     public void delete() {
+        try (Connection con = DB.sql2o.open()){
+            String sql = "DELETE FROM sightings * WHERE id = :id;";
+            con.createQuery(sql).addParameter("id", this.id).executeUpdate();
+        }
 
     }
 

@@ -74,17 +74,43 @@ public class SightingTest {
     }
 
     @Test
-    public void delete() {
+    public void find() {
+        Sighting sighting = new Sighting(1, 2, 3);
+        sighting.save();
+        assertEquals(sighting, Sighting.find(sighting.getId()));
+    }
 
+    @Test
+    public void delete() {
+        Sighting sighting = new Sighting(1, 2, 3);
+        sighting.save();
+        Sighting newOne = new Sighting(2,3,4);
+        newOne.save();
+        sighting.delete();
+        assertFalse(Sighting.all().contains(sighting));
+        assertTrue(Sighting.all().contains(newOne));
     }
 
     @Test
     public void save() {
-        Sighting sighting = new Sighting(1,2,3);
+        Place place = new Place("river");
+        Ranger ranger = new Ranger("muchui", "sg-001");
+        Animal animal = new Animal("lion",12, "ill",true);
+        Sighting sighting = new Sighting(place.getId(),animal.getId(),ranger.getId());
         sighting.save();
         Sighting fetched = Sighting.find(sighting.getId());
         assertEquals(sighting, fetched);
     }
 
+    @Test
+    public void deleteAll() {
+        Sighting sighting = new Sighting(1, 2, 3);
+        sighting.save();
+        Sighting newOne = new Sighting(2,3,4);
+        newOne.save();
+        Sighting.deleteAll();
+        assertFalse(Sighting.all().contains(sighting));
+        assertFalse(Sighting.all().contains(newOne));
+    }
 
 }
