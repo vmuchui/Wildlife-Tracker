@@ -9,7 +9,7 @@ public class AnimalTest {
     public DataBaseRule dataBaseRule = new DataBaseRule();
 
     @Test
-    public void Animal_instatiatesCorrectly_True() {
+    public void Animal_instantiatesCorrectly_True() {
         Animal testAnimal = new Animal("lion", 12, "healthy", false);
         assertTrue(testAnimal instanceof Animal);
     }
