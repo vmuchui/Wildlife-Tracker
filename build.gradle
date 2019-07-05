@@ -9,6 +9,7 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 mainClassName = 'App'
 
+
 repositories {
     mavenCentral()
 }
@@ -21,3 +22,11 @@ dependencies {
     compile group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
     compile group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
 }
+test {
+    testLogging {
+        exceptionFormat = 'full' events "passed", "skipped", "failed"
+    }
+}
+
+applicationName = "animals-wildlife"
+task stage(dependsOn: ['clean', 'installDist'])

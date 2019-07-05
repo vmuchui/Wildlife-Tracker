@@ -1,0 +1,23 @@
+{{#partial "title"}}
+    {{animal.name}}
+{{/partial}}
+
+
+{{#partial "content"}}
+
+<div class="card">
+    <div class="card-body">
+        <h3>Name: {{animal.name}}</h3>
+        <p>Age:{{animal.age}}</p>
+        <p>Health State: {{animal.health}}</p>
+        <p> Is Endangered? : <span class="badge badge-pill badge-default">{{animal.endangered}}</span></p>
+    </div>
+
+
+</div>
+
+
+
+{{/partial}}
+
+{{> layout.hbs}}
