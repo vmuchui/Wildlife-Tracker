@@ -67,6 +67,13 @@ public class Ranger implements Wildlife{
         }
     }
 
+    public List<Sighting> getSightings() {
+        try (Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM sightings WHERE rangerid = :rangerid;";
+            return con.createQuery(sql).addParameter("rangerid",this.id).executeAndFetch(Sighting.class);
+        }
+    }
+
     @Override
     public void delete() {
         try (Connection con = DB.sql2o.open()){

@@ -65,4 +65,12 @@ public class PlaceTest {
         Place newPlace = Place.find(place.getId());
         assertEquals(place,newPlace);
     }
+    @Test
+    public void getSightings() {
+        Place place = new Place("river");
+        place.save();
+        Sighting sighting = new Sighting(place.getId(),12,2);
+        sighting.save();
+        assertTrue(place.getSightings().contains(sighting));
+    }
 }

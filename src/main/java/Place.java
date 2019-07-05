@@ -34,6 +34,13 @@ public class Place implements Wildlife{
         }
     }
 
+    public List<Sighting> getSightings() {
+        try (Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM sightings WHERE placeid = :placeid;";
+            return con.createQuery(sql).addParameter("placeid",this.id).executeAndFetch(Sighting.class);
+        }
+    }
+
     public static Place find(int id) {
         try(Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM places WHERE id=:id;";

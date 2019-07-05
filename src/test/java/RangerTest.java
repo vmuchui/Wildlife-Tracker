@@ -83,4 +83,16 @@ public class RangerTest {
         Ranger ranger1 = Ranger.find(testRanger.getId());
         assertEquals(ranger1,testRanger);
     }
+
+    @Test
+    public void getSightings() {
+        Ranger ranger = setUpRanger();
+        ranger.save();
+        Sighting sighting = new Sighting(1,2,ranger.getId());
+        Sighting newSighting = new Sighting(2,3,ranger.getId());
+        sighting.save();
+        newSighting.save();
+        assertTrue(ranger.getSightings().contains(sighting));
+        assertTrue(ranger.getSightings().contains(newSighting));
+    }
 }
