@@ -1,0 +1,13 @@
+{{#partial "content"}}
+    <form class="form-group" action="/rangers" method= post>
+        <h3> Add Ranger's info: </h3>
+        <label for="name">Name: </label>
+        <input class="form-control" id="name" name="name" type="text" placeholder="Enter ranger name, e.g Jane Doe" required>
+        <label for="badge">Badge Number: </label>
+        <input class="form-control" id="badge" name="badge" type="text" placeholder="Enter badge number, e.g sg-001" required>
+
+        <button type="submit" class="btn btn-primary"> Add Info </button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}

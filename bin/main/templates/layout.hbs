@@ -7,35 +7,35 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{#block "title"}}Welcome to Heroes and Squads{{/block}}</title>
+        <title>{{#block "title"}}Wildlife Tracker{{/block}}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="/app.css">
         <link href="https://fonts.googleapis.com/css?family=Aladin|Fredericka+the+Great|Kumar+One|Luckiest+Guy|Marck+Script&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="/images/3d_letter_s.jpg">
+        <link rel="shortcut icon" href="/images/super_w.jpg">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
     </head>
 {{/block}}
-<body style="background-color: rgba(125,120,119,0.3)">
+<body>
 <header class="nav-bar">
     <ul class="nav nav-tabs">
         <a href="/" class="nav nav-items nav-link">Home</a>
-        <a href="/squads" class="nav nav-items nav-link">Squads</a>
-        <a href="/heroes" class="nav nav-items nav-link">Heroes</a>
+        <a href="/sightings" class="nav nav-items nav-link">Sightings</a>
+        <a href="/rangers" class="nav nav-items nav-link"> Rangers </a>
+        <a href="/locations" class="nav nav-items nav-link"> Locations </a>
+        <a href="/animals" class="nav nav-items nav-link"> Animals </a>
+        <a href="/add-info" class="nav nav-items nav-link">Add Info</a>
     </ul>
 </header>
-<div class="container">
-    <div class="row">
-        <div class="col-xs-4">
-        </div>
-        <div class="col-xs-1"></div>
-        <div class="col-xs-7">
-            {{#block "content"}}
+    <div class="container">
+        <div class="row">
+                {{#block "content"}}
 
-            {{/block}}
+                {{/block}}
+
 
         </div>
+
     </div>
-
-</div>
 
 {{#block "footer"}}
     </body>

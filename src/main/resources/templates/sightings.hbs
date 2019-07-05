@@ -1,0 +1,19 @@
+{{#partial "title"}}
+    Sightings
+{{/partial}}
+
+
+{{#partial "content"}}
+
+
+   {{#each sightings}}
+       <p>{{placeid}}</p>
+       <p>{{rangerid}}</p>
+       <p>{{animalid}}</p>
+   {{/each}}
+
+<a href="/sightings/new"> New Sighting </a>
+
+{{/partial}}
+
+{{> layout.hbs}}

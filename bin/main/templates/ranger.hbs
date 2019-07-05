@@ -1,0 +1,36 @@
+{{#partial "title"}}
+    {{ranger.name}}
+{{/partial}}
+
+
+{{#partial "content"}}
+    <div class="container">
+        <h2> Ranger: {{ranger.name}}</h2>
+        <br>
+        <h4>Badge no.:{{ranger.badge}}</h4>
+        <br><br>
+
+
+    </div>
+
+    <p> Sightings by {{ranger.name}}: </p>
+    <br><br>
+    <ul>
+        {{#each sightings}}
+            <li class="card">
+                <div class="card-body">
+                    <a href="/location/{{placeid}}" class="text-center"> Location:{{placeid}}</a><br>
+                    <a href="/animal/{{animalid}}" class="text-center"> Animal: {{animalid}}</a>
+                </div>
+
+            </li>
+            <br><br>
+
+        {{/each}}
+
+    </ul>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
