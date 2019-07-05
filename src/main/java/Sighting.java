@@ -1,3 +1,5 @@
+import org.sql2o.Connection;
+
 import java.util.Objects;
 
 public class Sighting implements Wildlife{
@@ -35,6 +37,38 @@ private int rangerid;
     public void setAnimalid(int animalid) {
         this.animalid = animalid;
     }
+    public int getRangerid() {
+        return rangerid;
+    }
+
+    public void setRangerid(int rangerid) {
+        this.rangerid = rangerid;
+    }
+
+    public static Sighting find(int id) {
+        try (Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM sightings WHERE id =:id;";
+            return con.createQuery(sql).addParameter("id", id).executeAndFetchFirst(Sighting.class);
+        }
+    }
+
+    @Override
+    public void delete() {
+
+    }
+
+    @Override
+    public void save() {
+        try (Connection con = DB.sql2o.open()){
+            String sql = "INSERT INTO sightings (animalid, placeid, rangerid) VALUES(:animalid, :placeid, :rangerid)";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("animalid",this.animalid)
+                    .addParameter("placeid", this.placeid)
+                    .addParameter("rangerid",this.rangerid)
+                    .executeUpdate().getKey();
+        }
+
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -52,21 +86,7 @@ private int rangerid;
         return Objects.hash(getId(), getPlaceid(), getAnimalid(), getRangerid());
     }
 
-    @Override
-    public void delete() {
 
-    }
 
-    @Override
-    public void save() {
 
-    }
-
-    public int getRangerid() {
-        return rangerid;
-    }
-
-    public void setRangerid(int rangerid) {
-        this.rangerid = rangerid;
-    }
 }
