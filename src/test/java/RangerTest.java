@@ -1,24 +1,14 @@
-import org.junit.After;
-import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
-import org.sql2o.Connection;
-import org.sql2o.Sql2o;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RangerTest {
-    @Before
-    public void setUp() throws Exception {
-        DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "victor", "Am0skwito");
-    }
+    @Rule
+    public DataBaseRule dataBaseRule = new DataBaseRule();
 
-    @After
-    public void tearDown() throws Exception {
-        try (Connection con = DB.sql2o.open()){
-            String initializerangers = "DELETE FROM rangers *;";
-            con.createQuery(initializerangers).executeUpdate();
-        }
-    }
+
     public Ranger setUpRanger() {
         return new Ranger("muchui", "sg-001");
     }

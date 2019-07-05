@@ -1,24 +1,12 @@
-import org.junit.After;
-import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
-import org.sql2o.Connection;
-import org.sql2o.Sql2o;
 
 import static org.junit.Assert.*;
 
-public class PlaceTest {
-    @Before
-    public void setUp() throws Exception {
-        DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "victor", "Am0skwito");
-    }
 
-    @After
-    public void tearDown() throws Exception {
-        try (Connection con = DB.sql2o.open()){
-            String initialize = "DELETE FROM places *;";
-            con.createQuery(initialize).executeUpdate();
-        }
-    }
+public class PlaceTest {
+    @Rule
+    public DataBaseRule dataBaseRule = new DataBaseRule();
     @Test
     public void Place_instatiatesCorrectly_True() {
         Place newPlace = new Place("river");
