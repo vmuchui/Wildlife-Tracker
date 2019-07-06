@@ -6,13 +6,23 @@
 {{#partial "content"}}
 
 
-   {{#each sightings}}
-       <p>{{placeid}}</p>
-       <p>{{rangerid}}</p>
-       <p>{{animalid}}</p>
-   {{/each}}
+    {{#if sightings}}
+        {{#each sightings}}
+            <div class="card col-md-2">
+                <p>Place : {{placeid}}</p>
+                <p>Ranger :{{rangerid}}</p>
+                <p>Animal :{{animalid}}</p>
+            </div>
 
-<a href="/sightings/new"> New Sighting </a>
+        {{/each}}
+
+    {{else}}
+        <h1 class="text-center"> No sightings have been reported yet!!!</h1>
+    {{/if}}
+
+
+
+<a href="/sightings/new" class="btn btn-outline-primary"> New Sighting </a>
 
 {{/partial}}
 
