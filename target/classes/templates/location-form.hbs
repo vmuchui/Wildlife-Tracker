@@ -1,0 +1,12 @@
+{{#partial "content"}}
+    <form class="form-group" action="/locations" method="post">
+        <h4>Add new location</h4>
+        <label for="name"> Location name:</label>
+        <input class="form-control" id="name" name="name" type="text" placeholder="Enter location name" required>
+
+
+        <button type="submit" class="btn btn-success">Add location!</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}

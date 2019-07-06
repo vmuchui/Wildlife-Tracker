@@ -1,0 +1,1 @@
+web: .build/install/animals-wildlife/bin/wildlife-tracker

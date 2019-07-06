@@ -1,0 +1,23 @@
+{{#partial "title"}}
+    Locations
+{{/partial}}
+
+
+{{#partial "content"}}
+
+<ul class="container">
+    {{#each locations}}
+        <li class="card col-md-3">
+            <p class="card-title text-center">{{name}}</p>
+            <a href="/location/{{id}}" class="btn btn-outline-success col-xs-3"> View Sightings </a>
+        </li>
+
+
+    {{/each}}
+</ul>
+<hr>
+
+
+{{/partial}}
+
+{{> layout.hbs}}

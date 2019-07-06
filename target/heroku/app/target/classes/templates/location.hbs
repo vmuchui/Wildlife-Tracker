@@ -1,0 +1,28 @@
+{{#partial "title"}}
+    {{location.name}}
+{{/partial}}
+
+
+{{#partial "content"}}
+
+    <h4>Sightings made in {{location.name}}: </h4>
+        <ul>
+            {{#each sightings}}
+                <li class="card">
+                    <div class="card-body">
+                        <a href="/ranger/{{rangerid}}" class="text-center"> Ranger:{{rangerid}}</a><br>
+                        <a href="/animal/{{animalid}}" class="text-center"> Animal: {{animalid}}</a>
+                    </div>
+
+
+                </li>
+                <br><br>
+
+            {{/each}}
+        </ul>
+
+
+
+{{/partial}}
+
+{{> layout.hbs}}

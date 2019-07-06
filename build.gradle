@@ -8,7 +8,7 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 mainClassName = 'App'
-
+archivesBaseName = 'wildlife-tracker'
 
 repositories {
     mavenCentral()
@@ -24,9 +24,10 @@ dependencies {
 }
 //test {
 //    testLogging {
-//        exceptionFormat = 'full' events "passed"-> "skipped" "failed"
+//        exceptionFormat = 'full' events "passed", "skipped", "failed"
 //    }
 //}
-//
-//applicationName = "animals-wildlife"
-//task stage(dependsOn: ['clean', 'installDist'])
+
+applicationName = "animals-wildlife"
+defaultTasks = ['clean']
+task stage(dependsOn: ['clean', 'installApp'])

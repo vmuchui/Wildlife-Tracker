@@ -1,0 +1,20 @@
+{{#partial "title"}}
+    Rangers
+{{/partial}}
+
+
+{{#partial "content"}}
+
+
+    {{#each rangers}}
+        <li class="card">
+            <p class="card-title">{{name}}</p>
+            <a href="/ranger/{{id}}" class="btn btn-outline-success">View Sightings</a>
+        </li>
+
+    {{/each}}
+
+
+{{/partial}}
+
+{{> layout.hbs}}

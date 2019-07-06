@@ -1,0 +1,29 @@
+{{#partial "title"}}
+    Animals
+{{/partial}}
+
+
+{{#partial "content"}}
+    <div class="container">
+        {{#each animals}}
+            <div class="card col-md-3">
+                <p>{{species}}</p>
+                <br>
+                <p>{{age}}</p>
+                <br>
+                <p>{{health}}</p>
+                <br>
+                <p class="badge badge-pill badge-default">Is endangered? {{endangered}}</p>
+            </div>
+
+
+        {{/each}}
+        <hr>
+
+        <br><br>
+    </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
